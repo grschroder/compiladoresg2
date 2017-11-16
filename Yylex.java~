@@ -598,7 +598,7 @@ class Yylex {
             }
           case 10: break;
           case 2: 
-            { System.out.println(""+yytext());
+            { //System.out.println(""+yytext());
 		yyparser.yylval = new ParserVal(yytext());
 		return Parser.IDENTIFICADOR;
             }

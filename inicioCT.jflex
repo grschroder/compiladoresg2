@@ -25,6 +25,7 @@ funcao_principal { return Parser.FUNCAO_PRINCIPAL; }
 incluir	{ return Parser.INCLUIR; }
 inteiro { return Parser.INTEIRO; }
 real	{ return Parser.REAL; }
+caracter { return Parser.CARACTER; }
 \<.*\>	{ yyparser.yylval = new ParserVal(yytext());
 		  return Parser.INCLUSAO_ARQUIVO; }
 "{"	{ return Parser.ABRE_CHAVES; }

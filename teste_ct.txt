@@ -4,4 +4,7 @@ incluir <stdlib.h>
 funcao_principal {
 	inteiro primeiralinha
 	real testesegundalinha
+	caracter testeterceiralinha [tamanho]
+	
+	
 }
