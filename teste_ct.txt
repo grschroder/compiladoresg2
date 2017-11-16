@@ -1,0 +1,7 @@
+incluir <stdio.h>
+incluir <stdlib.h>
+
+funcao_principal {
+	inteiro primeiralinha
+	real testesegundalinha
+}
