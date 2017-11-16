@@ -2,7 +2,7 @@
 	import java.io.*;
 	import java.util.*;
 %}
-
+//bicca
 /* BYACC Declarations */
 %token <sval> IDENTIFICADOR
 %token <sval> INCLUSAO_ARQUIVO
