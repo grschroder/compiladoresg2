@@ -1,14 +1,14 @@
-#Trabalho de Compiladores
-##Reconhecer grámatica e converter para a sintaxe do C
+# Trabalho de Compiladores
+## Reconhecer grámatica e converter para a sintaxe do C
 
-###Declaração
+### Declaração
 	- Inteiro
 	- Real
 	- Caracter
-###Condicional
+### Condicional
 	- Se
 	- Caso
-###Repetição
+### Repetição
 	- Para
 	- Enquanto
 	- Faça - até
