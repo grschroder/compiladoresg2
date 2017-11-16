@@ -2,7 +2,6 @@
 	import java.io.*;
 	import java.util.*;
 %}
-//bicca
 /* BYACC Declarations */
 %token <sval> IDENTIFICADOR
 %token <sval> INCLUSAO_ARQUIVO
@@ -36,7 +35,7 @@ comandos : declaracao comandos	{ $$ = $1; }
 declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = "int " + $2 + ";\n" + $3; }			
 		   | REAL IDENTIFICADOR declaracao {  $$ = "float " + $2 + ";\n" + $3; }
 		   | CARACTER IDENTIFICADOR declaracao {  $$ = "char " + $2 + ";\n" + $3; }
-		   | CARACTER IDENTIFICADOR  declaracao {  $$ = "char " + $2 + ";\n" + $3; }
+		   | CARACTER IDENTIFICADOR declaracao {  $$ = "char " + $2 + ";\n" + $3; }
 		   | {$$ = ""; }
 
 %%
