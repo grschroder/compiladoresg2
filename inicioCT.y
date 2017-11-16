@@ -8,15 +8,24 @@
 %token ABRE_CHAVES
 %token FECHA_CHAVES
 %token FUNCAO_PRINCIPAL
+%token ABRE_COLCHETES
+%token FECHA_COLCHETES
+%token DOIS_PONTOS
+%token IGUAL
+%token ATRIBUIR
 %token INCLUIR
 %token INTEIRO
 %token REAL
 %token CARACTER
+%token INCREMENTO
+%token DECREMENTO
+%token <sval> NUMERO
 %type <sval> programa
 %type <sval> funcao_principal
 %type <sval> inclusao
 %type <sval> comandos
 %type <sval> declaracao
+%type <sval> atribuicao
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -29,14 +38,28 @@ funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "in
 
 inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 
-comandos : declaracao comandos	{ $$ = $1; }
+comandos : declaracao comandos	{ $$ = $1 + $2; }
+		 | atribuicao comandos  { $$ = $1 + $2; }
 		 |	{ $$ = ""; }
 
-declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = "int " + $2 + ";\n" + $3; }			
-		   | REAL IDENTIFICADOR declaracao {  $$ = "float " + $2 + ";\n" + $3; }
-		   | CARACTER IDENTIFICADOR declaracao {  $$ = "char " + $2 + ";\n" + $3; }
-		   | CARACTER IDENTIFICADOR declaracao {  $$ = "char " + $2 + ";\n" + $3; }
+declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3; }
+		   | INTEIRO IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " int " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | INTEIRO IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " int " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | REAL IDENTIFICADOR declaracao {  $$ = " float " + $2 + ";\n" + $3; }
+		   | REAL IDENTIFICADOR ABRE_COLCHETES IDENTIFICADOR FECHA_COLCHETES declaracao {  $$ = " real " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | REAL IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " real " + $2 + "[" + $4 + "]" + ";\n" + $6; }		   
+		   | CARACTER IDENTIFICADOR declaracao {  $$ = " char " + $2 + ";\n" + $3; }
+		   | CARACTER IDENTIFICADOR ABRE_COLCHETES IDENTIFICADOR FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | CARACTER IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
 		   | {$$ = ""; }
+
+atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = $1 + " = " + $3 + ";\n" + $4; }
+		   | IDENTIFICADOR ATRIBUIR NUMERO atribuicao {  $$ = $1 + " = " + $3 + ";\n" + $4; }
+		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = $1 + "++" + ";\n" + $3; }
+		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = $1 + "--" + ";\n" + $3; }
+		   | {$$ = ""; }
+
+		   
 
 %%
 

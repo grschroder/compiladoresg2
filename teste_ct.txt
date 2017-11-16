@@ -2,9 +2,8 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-	inteiro primeiralinha
-	real testesegundalinha
-	caracter testeterceiralinha [tamanho]
+	quantidade--
+	inteiro teste
 	
 	
 }
