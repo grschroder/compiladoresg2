@@ -32,9 +32,16 @@ caracter { return Parser.CARACTER; }
 "}" { return Parser.FECHA_CHAVES; }
 "[" { return Parser.ABRE_COLCHETES; }
 "]" { return Parser.FECHA_COLCHETES; }
+"(" { return Parser.ABRE_PARENTESES; }
+")" { return Parser.FECHA_PARENTESES; }
 ":=" { return Parser.ATRIBUIR; }
 "++" { return Parser.INCREMENTO; }
 "--" { return Parser.DECREMENTO; }
+"\>" { return Parser.MAIOR; }
+"\<" { return Parser.MENOR; }
+"="	{ return Parser.IGUAL; }
+se { return Parser.SE; }
+senao { return Parser.SENAO; }
 [a-zA-Z][a-zA-Z0-9]*	{ 
 		//System.out.println(""+yytext());
 		yyparser.yylval = new ParserVal(yytext());

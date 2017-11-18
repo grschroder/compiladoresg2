@@ -2,9 +2,13 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-	quantidade--
-	inteiro teste
-	real testeSSSSSSS
-	qtd := qtd
-	
+  se (valor<=valor) {
+    qtd:=qtd
+  }	senao se (v>v) {
+      q:=q
+    } senao {
+	 q:=q
+	} se (c>c) {
+	  c:=c
+	}
 }

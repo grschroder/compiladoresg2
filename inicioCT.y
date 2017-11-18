@@ -21,6 +21,13 @@
 %token DECREMENTO
 %token MAIS
 %token MENOS
+%token PARA
+%token MAIOR
+%token MENOR
+%token ABRE_PARENTESES
+%token FECHA_PARENTESES
+%token SE
+%token SENAO
 %token <sval> NUMERO
 %type <sval> programa
 %type <sval> funcao_principal
@@ -29,6 +36,9 @@
 %type <sval> declaracao
 %type <sval> atribuicao
 %type <sval> expressao
+%type <sval> condicao
+%type <sval> condicionais
+%type <sval> tipo
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -41,8 +51,9 @@ funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "in
 
 inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 
-comandos : declaracao comandos	{ $$ = $1 + $2; }
-		 | atribuicao comandos  { $$ = $1 + $2; }
+comandos : declaracao comandos	 { $$ = $1 + $2; }
+		 | atribuicao comandos   { $$ = $1 + $2; }
+		 | condicionais comandos { $$ = $1 + $2; }
 		 |	{ $$ = ""; }
 
 declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3; }
@@ -63,10 +74,26 @@ atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = " " + $1 + 
 		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3; }
 		   | {$$ = ""; }
 
-expressao  : IDENTIFICADOR MAIS IDENTIFICADOR expressao {$$ = $1 + " + " + $3 + ";\n" + $4;}
-		   | IDENTIFICADOR MENOS IDENTIFICADOR expressao {$$ = $1 + " - " + $3 + ";\n" + $4;}
+tipo		: IDENTIFICADOR {$$ = $1;}
+			| NUMERO		{$$ = $1;}
 		   
+condicao   : tipo MAIOR tipo { $$ = $1 + " > " + $3; }
+		   | tipo MENOR tipo { $$ = $1 + " < " + $3; }
+		   | tipo IGUAL tipo { $$ = $1 + " == " + $3; }
+		   | tipo MAIOR IGUAL tipo { $$ = $1 + " >" + "= " + $4; }
+		   | tipo MENOR IGUAL tipo { $$ = $1 + " <" + "= " + $4; }
+		   | {$$ = ""; }
 
+condicionais : SE ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " if " + "(" + $3 + ")" + "{\n" + $6 + " }\n" + $8; }
+			 | SENAO SE ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " else" + "if" + "(" + $4 + ")" + "{\n" + $7 + " }\n" + $9; }
+			 | SENAO ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " else" + "{\n" + $3 + "}\n" + $5; }
+		     | {$$ = ""; }
+
+
+expressao  : IDENTIFICADOR MAIS IDENTIFICADOR expressao { $$ = $1 + " + " + $3 + ";\n" + $4; }
+		   | IDENTIFICADOR MENOS IDENTIFICADOR expressao { $$ = $1 + " - " + $3 + ";\n" + $4; }
+		   
+			 
 %%
 
 	// Referencia ao JFlex

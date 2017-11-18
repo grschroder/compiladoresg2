@@ -1,0 +1,28 @@
+INICIO -> PROGRAMA
+
+PROGRAMA -> INCLUSAO PROGRAMA
+	| FUNCAO_PRINCIPAL abre_chaves COMANDOS fecha_chaves PROGRAMA
+	| &
+
+INCLUSAO -> #include inclusao_arquivo
+
+COMANDOS -> DECLARACAO COMANDOS
+	| &
+
+DECLARACAO -> int identificador declaracao
+	    | real identificador declaracao
+	    | 
+
+ATRIBUICAO -> 
+
+TIPO	-> numero
+	| identificador
+
+CONDICAO -> variavel > variavel
+	  | numero > numero
+	  | variavel > numero
+	  | numero > variavel
+
+CONDICIONAL 	-> if ( CONDICAO ) { COMANDOS } CONDICIONAL
+	     	| else ( CONDICAO ) { COMANDOS } CONDICIONAL
+		| elseif ( CONDICAO ) { COMANDOS } CONDICIONAL
