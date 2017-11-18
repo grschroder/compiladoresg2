@@ -103,7 +103,8 @@ operacoes	: MAIS expressao { $$ = "+" + $2; }
 			
 expressao	: tipo operacoes { $$ = $1 + $2; }
 			| operacoes tipo { $$ = $1 + $2; }
-
+			| operacoes ABRE_PARENTESES expressao FECHA_PARENTESES operacoes { $$ = "(" + $3 + ")" + $5; }
+			| {$$ = ""; }
 			
 %%
 
