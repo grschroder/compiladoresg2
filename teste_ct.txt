@@ -2,5 +2,5 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-	qtd := (qtd-qtd)+(teste+2)+t+qtd-qtd+2-2/2+1
+	qtd := qtd/2+(2+5)%m
 }
