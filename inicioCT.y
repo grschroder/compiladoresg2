@@ -19,6 +19,8 @@
 %token CARACTER
 %token INCREMENTO
 %token DECREMENTO
+%token MAIS
+%token MENOS
 %token <sval> NUMERO
 %type <sval> programa
 %type <sval> funcao_principal
@@ -26,6 +28,7 @@
 %type <sval> comandos
 %type <sval> declaracao
 %type <sval> atribuicao
+%type <sval> expressao
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -53,12 +56,15 @@ declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3;
 		   | CARACTER IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
 		   | {$$ = ""; }
 
-atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = $1 + " = " + $3 + ";\n" + $4; }
-		   | IDENTIFICADOR ATRIBUIR NUMERO atribuicao {  $$ = $1 + " = " + $3 + ";\n" + $4; }
+atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
+		   | IDENTIFICADOR ATRIBUIR NUMERO atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
 		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = $1 + "++" + ";\n" + $3; }
 		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = $1 + "--" + ";\n" + $3; }
+		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3; }
 		   | {$$ = ""; }
 
+expressao  : IDENTIFICADOR MAIS IDENTIFICADOR expressao {$$ = $1 + " + " + $3 + ";\n" + $4;}
+		   | IDENTIFICADOR MENOS IDENTIFICADOR expressao {$$ = $1 + " - " + $3 + ";\n" + $4;}
 		   
 
 %%

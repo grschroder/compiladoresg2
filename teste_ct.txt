@@ -4,6 +4,7 @@ incluir <stdlib.h>
 funcao_principal {
 	quantidade--
 	inteiro teste
-	
+	real testeSSSSSSS
+	qtd := qtd
 	
 }
