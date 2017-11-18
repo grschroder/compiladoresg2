@@ -11,6 +11,7 @@
 %token ABRE_COLCHETES
 %token FECHA_COLCHETES
 %token DOIS_PONTOS
+%token PONTO_VIRGULA
 %token IGUAL
 %token ATRIBUIR
 %token INCLUIR
@@ -21,6 +22,9 @@
 %token DECREMENTO
 %token MAIS
 %token MENOS
+%token MULTIPLICADO
+%token DIVIDIDO
+%token RESTO
 %token PARA
 %token MAIOR
 %token MENOR
@@ -35,10 +39,11 @@
 %type <sval> comandos
 %type <sval> declaracao
 %type <sval> atribuicao
-%type <sval> expressao
 %type <sval> condicao
 %type <sval> condicionais
 %type <sval> tipo
+%type <sval> operacoes
+%type <sval> expressao
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -69,9 +74,9 @@ declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3;
 
 atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
 		   | IDENTIFICADOR ATRIBUIR NUMERO atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
-		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = $1 + "++" + ";\n" + $3; }
-		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = $1 + "--" + ";\n" + $3; }
-		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3; }
+		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = " " + $1 + "++" + ";\n" + $3; }
+		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = " " + $1 + "--" + ";\n" + $3; }
+		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3 + ";\n"; }
 		   | {$$ = ""; }
 
 tipo		: IDENTIFICADOR {$$ = $1;}
@@ -89,11 +94,17 @@ condicionais : SE ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos
 			 | SENAO ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " else" + "{\n" + $3 + "}\n" + $5; }
 		     | {$$ = ""; }
 
+operacoes	: MAIS expressao { $$ = "+" + $2; }
+			| MENOS expressao { $$ = "-" + $2; }
+			| MULTIPLICADO expressao { $$ = "*" + $2; }
+			| DIVIDIDO expressao { $$ = "/" + $2; }
+			| RESTO expressao { $$ = "%" + $2; }
+		    | {$$ = ""; }
+			
+expressao	: tipo operacoes { $$ = $1 + $2; }
+			| operacoes tipo { $$ = $1 + $2; }
 
-expressao  : IDENTIFICADOR MAIS IDENTIFICADOR expressao { $$ = $1 + " + " + $3 + ";\n" + $4; }
-		   | IDENTIFICADOR MENOS IDENTIFICADOR expressao { $$ = $1 + " - " + $3 + ";\n" + $4; }
-		   
-			 
+			
 %%
 
 	// Referencia ao JFlex

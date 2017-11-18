@@ -2,13 +2,5 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-  se (valor<=valor) {
-    qtd:=qtd
-  }	senao se (v>v) {
-      q:=q
-    } senao {
-	 q:=q
-	} se (c>c) {
-	  c:=c
-	}
+	qtd := qtd+qtd-qtd-2/2*(t/t)
 }

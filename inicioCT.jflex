@@ -37,9 +37,15 @@ caracter { return Parser.CARACTER; }
 ":=" { return Parser.ATRIBUIR; }
 "++" { return Parser.INCREMENTO; }
 "--" { return Parser.DECREMENTO; }
+"+" { return Parser.MAIS; }
+"-" { return Parser.MENOS; }
+"\*" { return Parser.MULTIPLICADO; }
+"\/" { return Parser.DIVIDIDO; }
+"\%" { return Parser.RESTO; }
 "\>" { return Parser.MAIOR; }
 "\<" { return Parser.MENOR; }
 "="	{ return Parser.IGUAL; }
+";" { return Parser.PONTO_VIRGULA; }
 se { return Parser.SE; }
 senao { return Parser.SENAO; }
 [a-zA-Z][a-zA-Z0-9]*	{ 
