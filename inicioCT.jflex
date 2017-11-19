@@ -48,6 +48,7 @@ caracter { return Parser.CARACTER; }
 ";" { return Parser.PONTO_VIRGULA; }
 se { return Parser.SE; }
 senao { return Parser.SENAO; }
+enquanto { return Parser.ENQUANTO; }
 [a-zA-Z][a-zA-Z0-9]*	{ 
 		//System.out.println(""+yytext());
 		yyparser.yylval = new ParserVal(yytext());

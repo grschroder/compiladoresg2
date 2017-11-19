@@ -2,5 +2,16 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-	qtd := qtd/2+(2+5)%m
+  caracter funcoes[tamanho]
+  inteiro valores[tamanho]
+  real resultado[tamanho]
+  inteiro i
+  i := 0
+    enquanto (i <= tamanho) {
+    t := i + 2
+    i++
+	se (i<2) {
+	teste := teste
+	}
+  }
 }

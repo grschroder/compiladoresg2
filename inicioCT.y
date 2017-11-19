@@ -32,6 +32,7 @@
 %token FECHA_PARENTESES
 %token SE
 %token SENAO
+%token ENQUANTO
 %token <sval> NUMERO
 %type <sval> programa
 %type <sval> funcao_principal
@@ -44,6 +45,7 @@
 %type <sval> tipo
 %type <sval> operacoes
 %type <sval> expressao
+%type <sval> lacos
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -59,21 +61,18 @@ inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 comandos : declaracao comandos	 { $$ = $1 + $2; }
 		 | atribuicao comandos   { $$ = $1 + $2; }
 		 | condicionais comandos { $$ = $1 + $2; }
+		 | lacos comandos { $$ = $1 + $2; }
 		 |	{ $$ = ""; }
 
 declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3; }
-		   | INTEIRO IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " int " + $2 + "[" + $4 + "]" + ";\n" + $6; }
-		   | INTEIRO IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " int " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | INTEIRO IDENTIFICADOR ABRE_COLCHETES tipo FECHA_COLCHETES declaracao {  $$ = " int " + $2 + "[" + $4 + "]" + ";\n" + $6; }
 		   | REAL IDENTIFICADOR declaracao {  $$ = " float " + $2 + ";\n" + $3; }
-		   | REAL IDENTIFICADOR ABRE_COLCHETES IDENTIFICADOR FECHA_COLCHETES declaracao {  $$ = " real " + $2 + "[" + $4 + "]" + ";\n" + $6; }
-		   | REAL IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " real " + $2 + "[" + $4 + "]" + ";\n" + $6; }		   
+		   | REAL IDENTIFICADOR ABRE_COLCHETES tipo FECHA_COLCHETES declaracao {  $$ = " real " + $2 + "[" + $4 + "]" + ";\n" + $6; }
 		   | CARACTER IDENTIFICADOR declaracao {  $$ = " char " + $2 + ";\n" + $3; }
-		   | CARACTER IDENTIFICADOR ABRE_COLCHETES IDENTIFICADOR FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
-		   | CARACTER IDENTIFICADOR ABRE_COLCHETES NUMERO FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
+		   | CARACTER IDENTIFICADOR ABRE_COLCHETES tipo FECHA_COLCHETES declaracao {  $$ = " char " + $2 + "[" + $4 + "]" + ";\n" + $6; }
 		   | {$$ = ""; }
 
-atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
-		   | IDENTIFICADOR ATRIBUIR NUMERO atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
+atribuicao : IDENTIFICADOR ATRIBUIR tipo atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
 		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = " " + $1 + "++" + ";\n" + $3; }
 		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = " " + $1 + "--" + ";\n" + $3; }
 		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3 + ";\n"; }
@@ -105,6 +104,7 @@ expressao	: tipo operacoes { $$ = $1 + $2; }
 			| operacoes ABRE_PARENTESES expressao FECHA_PARENTESES operacoes { $$ = "(" + $3 + ")" + $5; }
 			| {$$ = ""; }
 			
+lacos		: ENQUANTO ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$ = "while " + "(" + $3 + ")" + "{\n " + $6 + "}\n"; }
 			
 %%
 
