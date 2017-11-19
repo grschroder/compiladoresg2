@@ -384,7 +384,7 @@ final static String yyrule[] = {
 "lacos : FACA ABRE_CHAVES comandos FECHA_CHAVES ATE ABRE_PARENTESES condicao FECHA_PARENTESES",
 };
 
-//#line 114 "inicioCT.y"
+//#line 116 "inicioCT.y"
 
 	// Referencia ao JFlex
 	private Yylex lexer;
@@ -662,99 +662,99 @@ case 22:
 {  yyval.sval = val_peek(2).sval + "=" + val_peek(0).sval + ";\n"; }
 break;
 case 23:
-//#line 82 "inicioCT.y"
+//#line 83 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 24:
-//#line 84 "inicioCT.y"
-{yyval.sval = val_peek(0).sval;}
-break;
-case 25:
 //#line 85 "inicioCT.y"
 {yyval.sval = val_peek(0).sval;}
 break;
+case 25:
+//#line 86 "inicioCT.y"
+{yyval.sval = val_peek(0).sval;}
+break;
 case 26:
-//#line 87 "inicioCT.y"
+//#line 88 "inicioCT.y"
 { yyval.sval = val_peek(2).sval + " > " + val_peek(0).sval; }
 break;
 case 27:
-//#line 88 "inicioCT.y"
+//#line 89 "inicioCT.y"
 { yyval.sval = val_peek(2).sval + " < " + val_peek(0).sval; }
 break;
 case 28:
-//#line 89 "inicioCT.y"
+//#line 90 "inicioCT.y"
 { yyval.sval = val_peek(2).sval + " == " + val_peek(0).sval; }
 break;
 case 29:
-//#line 90 "inicioCT.y"
+//#line 91 "inicioCT.y"
 { yyval.sval = val_peek(3).sval + " >" + "= " + val_peek(0).sval; }
 break;
 case 30:
-//#line 91 "inicioCT.y"
+//#line 92 "inicioCT.y"
 { yyval.sval = val_peek(3).sval + " <" + "= " + val_peek(0).sval; }
 break;
 case 31:
-//#line 92 "inicioCT.y"
+//#line 93 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 32:
-//#line 94 "inicioCT.y"
+//#line 95 "inicioCT.y"
 { yyval.sval = " if " + "(" + val_peek(5).sval + ")" + "{\n" + val_peek(2).sval + " }\n" + val_peek(0).sval; }
 break;
 case 33:
-//#line 95 "inicioCT.y"
+//#line 96 "inicioCT.y"
 { yyval.sval = " else" + "if" + "(" + val_peek(5).sval + ")" + "{\n" + val_peek(2).sval + " }\n" + val_peek(0).sval; }
 break;
 case 34:
-//#line 96 "inicioCT.y"
+//#line 97 "inicioCT.y"
 { yyval.sval = " else" + "{\n" + val_peek(2).sval + "}\n" + val_peek(0).sval; }
 break;
 case 35:
-//#line 97 "inicioCT.y"
+//#line 98 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 36:
-//#line 99 "inicioCT.y"
+//#line 100 "inicioCT.y"
 { yyval.sval = "+" + val_peek(0).sval; }
 break;
 case 37:
-//#line 100 "inicioCT.y"
+//#line 101 "inicioCT.y"
 { yyval.sval = "-" + val_peek(0).sval; }
 break;
 case 38:
-//#line 101 "inicioCT.y"
+//#line 102 "inicioCT.y"
 { yyval.sval = "*" + val_peek(0).sval; }
 break;
 case 39:
-//#line 102 "inicioCT.y"
+//#line 103 "inicioCT.y"
 { yyval.sval = "/" + val_peek(0).sval; }
 break;
 case 40:
-//#line 103 "inicioCT.y"
+//#line 104 "inicioCT.y"
 { yyval.sval = "%" + val_peek(0).sval; }
 break;
 case 41:
-//#line 104 "inicioCT.y"
+//#line 105 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 42:
-//#line 106 "inicioCT.y"
+//#line 107 "inicioCT.y"
 { yyval.sval = val_peek(1).sval + val_peek(0).sval; }
 break;
 case 43:
-//#line 107 "inicioCT.y"
+//#line 108 "inicioCT.y"
 { yyval.sval = "(" + val_peek(2).sval + ")" + val_peek(0).sval; }
 break;
 case 44:
-//#line 108 "inicioCT.y"
+//#line 109 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 45:
-//#line 110 "inicioCT.y"
+//#line 111 "inicioCT.y"
 {yyval.sval = "while " + "(" + val_peek(4).sval + ")" + "{\n " + val_peek(1).sval + "}\n"; }
 break;
 case 46:
-//#line 111 "inicioCT.y"
+//#line 112 "inicioCT.y"
 { yyval.sval = "do" + "{\n " + val_peek(5).sval + "}" + " while" + "(" + val_peek(1).sval + ")\n"; }
 break;
 //#line 684 "Parser.java"

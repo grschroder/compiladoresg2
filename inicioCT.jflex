@@ -45,7 +45,7 @@ caracter { return Parser.CARACTER; }
 "\>" { return Parser.MAIOR; }
 "\<" { return Parser.MENOR; }
 "="	{ return Parser.IGUAL; }
-";" { return Parser.PONTO_VIRGULA; }
+"\;" { return Parser.PONTO_VIRGULA; }
 se { return Parser.SE; }
 senao { return Parser.SENAO; }
 enquanto { return Parser.ENQUANTO; }
