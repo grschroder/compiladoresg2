@@ -14,4 +14,8 @@ funcao_principal {
 	teste := teste
 	}
   }
+  faca {
+	te := tamanho
+	t := t+t+t+5
+  } ate (2>2)
 }
