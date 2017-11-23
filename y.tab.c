@@ -35,117 +35,125 @@ static char yysccsid[] = "@(#)yaccpar	1.8 (Berkeley) 01/20/90";
 #define FECHA_PARENTESES 283
 #define SE 284
 #define SENAO 285
-#define NUMERO 286
+#define ENQUANTO 286
+#define FACA 287
+#define ATE 288
+#define NUMERO 289
 #define YYERRCODE 256
 short yylhs[] = {                                        -1,
     0,    1,    1,    1,    2,    3,    4,    4,    4,    4,
-    5,    5,    5,    5,    5,    5,    5,    6,    6,    6,
+    4,    5,    5,    5,    5,    5,    5,    5,    6,    6,
     6,    6,    6,    9,    9,    7,    7,    7,    7,    7,
     7,    8,    8,    8,    8,   10,   10,   10,   10,   10,
-   10,   11,   11,   11,
+   10,   11,   11,   11,   12,   12,
 };
 short yylen[] = {                                         2,
-    1,    2,    2,    0,    4,    2,    2,    2,    2,    0,
-    3,    6,    3,    6,    3,    6,    0,    4,    4,    3,
+    1,    2,    2,    0,    4,    2,    2,    2,    2,    2,
+    0,    3,    6,    3,    6,    3,    6,    0,    4,    3,
     3,    3,    0,    1,    1,    3,    3,    3,    4,    4,
     0,    8,    9,    5,    0,    2,    2,    2,    2,    2,
-    0,    2,    5,    0,
+    0,    2,    5,    0,    7,    8,
 };
 short yydefred[] = {                                      0,
     0,    0,    0,    1,    0,    0,    0,    6,    3,    2,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    5,
-    7,    8,    9,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,   22,   20,   21,    0,   11,    0,   13,    0,
-   15,   24,   25,    0,    0,    0,    0,   18,   36,   37,
-   38,   39,   40,   19,   42,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-   28,    0,   26,    0,   27,   34,    0,    0,   12,   14,
-   16,    0,   29,   30,    0,   43,    0,    0,   32,    0,
-   33,
+    0,    0,    0,    0,    5,    7,    8,    9,   10,   24,
+    0,    0,    0,    0,    0,   25,    0,    0,   22,   20,
+   21,    0,   12,    0,   14,    0,   16,    0,    0,    0,
+    0,    0,    0,    0,   36,   37,   38,   39,   40,   19,
+   42,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,   28,    0,
+   26,    0,   27,   34,    0,    0,    0,    0,   13,   15,
+   17,    0,   29,   30,    0,    0,    0,   43,    0,    0,
+   45,    0,   32,    0,   46,   33,
 };
 short yydgoto[] = {                                       3,
-    4,    5,    6,   17,   18,   19,   54,   20,   41,   42,
-   43,
+    4,    5,    6,   19,   20,   21,   58,   22,   64,   48,
+   49,   23,
 };
-short yysindex[] = {                                   -200,
- -225, -221,    0,    0, -200, -200, -178,    0,    0,    0,
-  -89, -211, -201, -198, -219, -231, -193, -178, -178, -178,
- -236, -183, -183, -120,  -97,  -94, -242, -178, -206,    0,
-    0,    0,    0, -183, -205, -205, -205, -205, -205, -183,
-  -88, -192,    0,    0,    0, -242,    0, -242,    0, -242,
-    0,    0,    0, -179, -184, -162, -242,    0,    0,    0,
-    0,    0,    0,    0,    0, -205, -158, -151, -145, -140,
- -242, -243, -241, -265, -152, -150, -185, -185, -185, -178,
-    0, -242,    0, -242,    0,    0, -127,  -88,    0,    0,
-    0, -122,    0,    0, -178,    0, -265,  -96,    0, -265,
-    0,
+short yysindex[] = {                                   -212,
+ -215, -225,    0,    0, -212, -212, -170,    0,    0,    0,
+ -138, -207, -190, -184, -198, -249, -194, -182, -185, -170,
+ -170, -170, -170, -248, -163, -163, -205, -200, -130, -244,
+ -170, -154, -244, -170,    0,    0,    0,    0,    0,    0,
+ -248, -248, -248, -248, -248,    0, -152, -151,    0,    0,
+    0, -244,    0, -244,    0, -244,    0, -153, -261, -162,
+ -244, -119,  -87, -106,    0,    0,    0,    0,    0,    0,
+    0, -248,  -89,  -88,  -86,  -83, -244, -241, -226, -238,
+ -105,  -80, -103,  -99, -108, -108, -108, -170,    0, -244,
+    0, -244,    0,    0,  -73, -170,  -95, -106,    0,    0,
+    0,  -71,    0,    0, -170,  -70, -244,    0, -238,  -69,
+    0,  -91,    0, -238,    0,    0,
 };
-short yyrindex[] = {                                    163,
-    0,    0,    0,    0,  163,  163,  -93,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,  -93,  -93,  -93,
- -126, -123, -123, -230, -230, -230, -117,  -93,    0,    0,
-    0,    0,    0, -161, -130, -130, -130, -130, -130, -149,
- -182,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0, -117,    0,    0,    0,
-    0,    0,    0,    0,    0, -251,    0,    0,    0,    0,
-    0,    0,    0, -100,    0,    0, -230, -230, -230,  -93,
-    0,    0,    0,    0,    0,    0,    0, -182,    0,    0,
-    0,    0,    0,    0,  -93,    0, -100,    0,    0, -100,
-    0,
+short yyrindex[] = {                                    188,
+    0,    0,    0,    0,  188,  188,  -67,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,  -67,
+  -67,  -67,  -67, -127, -104, -104, -139, -139, -139,  -85,
+  -67,    0,  -85,  -67,    0,    0,    0,    0,    0,    0,
+ -133, -133, -133, -133, -133,    0, -104,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+  -85,    0,    0, -174,    0,    0,    0,    0,    0,    0,
+    0, -191,    0,    0,    0,    0,    0,    0,    0, -167,
+    0,    0,    0,    0, -139, -139, -139,  -67,    0,    0,
+    0,    0,    0,    0,    0,  -67,    0, -174,    0,    0,
+    0,    0,    0,    0,  -67,    0,  -85,    0, -167,    0,
+    0,    0,    0, -167,    0,    0,
 };
 short yygindex[] = {                                      0,
-   89,    0,    0,  -18,  -13,   -5,  122,  -17,  -24,  -37,
-  -30,
+  101,    0,    0,  -20,   -6,   -8,  -29,  -72,  -18,  -40,
+   10,    0,
 };
-#define YYTABLESIZE 190
-short yytable[] = {                                      31,
-   32,   33,   55,   65,   59,   60,   61,   62,   63,   56,
-   47,   49,   51,   52,   52,   52,   44,   45,   15,   16,
-   34,   67,   82,   68,   84,   69,   17,   28,   58,   17,
-   41,   44,   55,    7,   64,   76,    8,   35,   36,   37,
-   38,   39,   53,   53,   53,   24,   81,   83,   85,   40,
-   96,   52,   29,   17,   17,   25,   86,   93,   26,   94,
-    1,   92,   27,   89,   90,   91,   30,    2,   35,   36,
-   37,   38,   39,   11,   41,   57,   98,   41,   11,   99,
-   53,   71,  101,   12,   13,   14,   41,   41,   41,   66,
-   12,   13,   14,    9,   10,   72,   73,   74,   23,   41,
-   41,   41,   41,   70,   77,   15,   16,   23,   23,   23,
-   23,   78,   24,   24,   24,   24,   24,   79,   80,   23,
-   23,   23,   23,   23,   25,   25,   25,   25,   25,   44,
-   87,   95,   88,   44,   23,   23,   23,   97,   44,   44,
-   44,   46,   44,   44,   44,   23,   23,   23,   12,   13,
-   14,   41,   44,   44,   44,   41,   35,   44,   44,   35,
-   23,   23,    4,  100,   48,   31,   10,   50,   35,   35,
-   35,   12,   13,   14,   12,   13,   14,   21,   75,    0,
-    0,    0,   22,   23,    0,   35,   36,   37,   38,   39,
+#define YYTABLESIZE 198
+short yytable[] = {                                      36,
+   37,   38,   39,   62,   77,   47,   71,   94,   40,   31,
+   60,   59,   40,   63,   59,   40,   50,   51,   78,   79,
+   53,   55,   57,   71,   90,   41,   42,   43,   44,   45,
+   40,   81,    8,   73,   32,   74,  113,   75,   70,   92,
+   46,  116,   59,    7,   46,   15,   16,   46,    1,   27,
+   65,   66,   67,   68,   69,    2,   52,  108,   89,   91,
+   93,   54,   46,   12,   13,   14,   28,  102,   12,   13,
+   14,  103,   29,  104,   35,  106,   34,  112,   99,  100,
+  101,   84,   41,   30,  110,   41,   11,   33,   59,   35,
+   41,   44,   35,   11,   41,   41,   41,   80,   12,   13,
+   14,   35,   35,   35,   11,    9,   10,   41,   41,   41,
+   41,   41,   41,   15,   16,   17,   18,   18,   35,   35,
+   18,   41,   42,   43,   44,   45,   44,   61,   24,   76,
+   72,   56,   44,   25,   26,   44,   44,   44,   12,   13,
+   14,   44,   44,   44,   18,   18,   18,   18,   41,   44,
+   44,   44,   44,   44,   41,   23,   44,   44,   44,   44,
+   12,   13,   14,   82,   23,   23,   23,   41,   42,   43,
+   44,   45,   83,   85,   86,   88,   87,   95,   96,   23,
+   23,   23,   23,   98,   97,  105,  107,    4,  109,  111,
+  114,  115,   11,    0,    0,    0,    0,   31,
 };
-short yycheck[] = {                                      18,
-   19,   20,   27,   41,   35,   36,   37,   38,   39,   28,
-   24,   25,   26,  257,  257,  257,   22,   23,  284,  285,
-  257,   46,  266,   48,  266,   50,  257,  259,   34,  260,
-  282,  283,   57,  259,   40,   66,  258,  274,  275,  276,
-  277,  278,  286,  286,  286,  257,   71,   72,   73,  286,
-   88,  257,  284,  284,  285,  257,   74,   82,  257,   84,
-  261,   80,  282,   77,   78,   79,  260,  268,  274,  275,
-  276,  277,  278,  257,  257,  282,   95,  260,  257,   97,
-  286,  266,  100,  269,  270,  271,  269,  270,  271,  282,
-  269,  270,  271,    5,    6,  280,  281,  260,  260,  282,
-  283,  284,  285,  283,  263,  284,  285,  269,  270,  271,
-  260,  263,  274,  275,  276,  277,  278,  263,  259,  269,
-  270,  271,  284,  285,  274,  275,  276,  277,  278,  260,
-  283,  259,  283,  260,  284,  285,  260,  260,  269,  270,
-  271,  262,  269,  270,  271,  269,  270,  271,  269,  270,
-  271,  282,  283,  284,  285,  282,  257,  284,  285,  260,
-  284,  285,    0,  260,  262,  283,  260,  262,  269,  270,
-  271,  269,  270,  271,  269,  270,  271,  267,   57,   -1,
-   -1,   -1,  272,  273,   -1,  274,  275,  276,  277,  278,
+short yycheck[] = {                                      20,
+   21,   22,   23,   33,  266,   24,   47,   80,  257,  259,
+   31,   30,  257,   34,   33,  257,   25,   26,  280,  281,
+   27,   28,   29,   64,  266,  274,  275,  276,  277,  278,
+  257,   61,  258,   52,  284,   54,  109,   56,   47,  266,
+  289,  114,   61,  259,  289,  284,  285,  289,  261,  257,
+   41,   42,   43,   44,   45,  268,  262,   98,   77,   78,
+   79,  262,  289,  269,  270,  271,  257,   88,  269,  270,
+  271,   90,  257,   92,  260,   96,  259,  107,   85,   86,
+   87,   72,  257,  282,  105,  260,  257,  282,  107,  257,
+  282,  283,  260,  257,  269,  270,  271,  260,  269,  270,
+  271,  269,  270,  271,  257,    5,    6,  282,  283,  284,
+  285,  286,  287,  284,  285,  286,  287,  257,  286,  287,
+  260,  274,  275,  276,  277,  278,  260,  282,  267,  283,
+  282,  262,  260,  272,  273,  269,  270,  271,  269,  270,
+  271,  269,  270,  271,  284,  285,  286,  287,  282,  283,
+  284,  285,  286,  287,  282,  260,  284,  285,  286,  287,
+  269,  270,  271,  283,  269,  270,  271,  274,  275,  276,
+  277,  278,  260,  263,  263,  259,  263,  283,  259,  284,
+  285,  286,  287,  283,  288,  259,  282,    0,  260,  260,
+  260,  283,  260,   -1,   -1,   -1,   -1,  283,
 };
 #define YYFINAL 3
 #ifndef YYDEBUG
 #define YYDEBUG 0
 #endif
-#define YYMAXTOKEN 286
+#define YYMAXTOKEN 289
 #if YYDEBUG
 char *yyname[] = {
 "end-of-file",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -159,7 +167,8 @@ char *yyname[] = {
 "ABRE_COLCHETES","FECHA_COLCHETES","DOIS_PONTOS","PONTO_VIRGULA","IGUAL",
 "ATRIBUIR","INCLUIR","INTEIRO","REAL","CARACTER","INCREMENTO","DECREMENTO",
 "MAIS","MENOS","MULTIPLICADO","DIVIDIDO","RESTO","PARA","MAIOR","MENOR",
-"ABRE_PARENTESES","FECHA_PARENTESES","SE","SENAO","NUMERO",
+"ABRE_PARENTESES","FECHA_PARENTESES","SE","SENAO","ENQUANTO","FACA","ATE",
+"NUMERO",
 };
 char *yyrule[] = {
 "$accept : inicio",
@@ -172,6 +181,7 @@ char *yyrule[] = {
 "comandos : declaracao comandos",
 "comandos : atribuicao comandos",
 "comandos : condicionais comandos",
+"comandos : lacos comandos",
 "comandos :",
 "declaracao : INTEIRO IDENTIFICADOR declaracao",
 "declaracao : INTEIRO IDENTIFICADOR ABRE_COLCHETES tipo FECHA_COLCHETES declaracao",
@@ -180,8 +190,7 @@ char *yyrule[] = {
 "declaracao : CARACTER IDENTIFICADOR declaracao",
 "declaracao : CARACTER IDENTIFICADOR ABRE_COLCHETES tipo FECHA_COLCHETES declaracao",
 "declaracao :",
-"atribuicao : IDENTIFICADOR ATRIBUIR IDENTIFICADOR atribuicao",
-"atribuicao : IDENTIFICADOR ATRIBUIR NUMERO atribuicao",
+"atribuicao : IDENTIFICADOR ATRIBUIR tipo atribuicao",
 "atribuicao : IDENTIFICADOR INCREMENTO atribuicao",
 "atribuicao : IDENTIFICADOR DECREMENTO atribuicao",
 "atribuicao : IDENTIFICADOR ATRIBUIR expressao",
@@ -207,6 +216,8 @@ char *yyrule[] = {
 "expressao : tipo operacoes",
 "expressao : operacoes ABRE_PARENTESES expressao FECHA_PARENTESES operacoes",
 "expressao :",
+"lacos : ENQUANTO ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES",
+"lacos : FACA ABRE_CHAVES comandos FECHA_CHAVES ATE ABRE_PARENTESES condicao FECHA_PARENTESES",
 };
 #endif
 #define yyclearin (yychar=(-1))
@@ -234,7 +245,7 @@ YYSTYPE yylval;
 short yyss[YYSTACKSIZE];
 YYSTYPE yyvs[YYSTACKSIZE];
 #define yystacksize YYSTACKSIZE
-#line 107 "inicioCT.y"
+#line 116 "inicioCT.y"
 
 	// Referencia ao JFlex
 	private Yylex lexer;
@@ -269,7 +280,7 @@ YYSTYPE yyvs[YYSTACKSIZE];
 				System.err.println("Error: " + ex);
 			}
 	}
-#line 273 "y.tab.c"
+#line 284 "y.tab.c"
 #define YYABORT goto yyabort
 #define YYACCEPT goto yyaccept
 #define YYERROR goto yyerrlab
@@ -410,182 +421,190 @@ yyreduce:
     switch (yyn)
     {
 case 1:
-#line 49 "inicioCT.y"
+#line 54 "inicioCT.y"
 { System.out.println(yyvsp[0].sval); }
 break;
 case 2:
-#line 51 "inicioCT.y"
+#line 56 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + "\n" + yyvsp[0].sval; }
 break;
 case 3:
-#line 52 "inicioCT.y"
+#line 57 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + "\n" + yyvsp[0].sval; }
 break;
 case 4:
-#line 53 "inicioCT.y"
+#line 58 "inicioCT.y"
 { yyval.sval = ""; }
 break;
 case 5:
-#line 55 "inicioCT.y"
+#line 60 "inicioCT.y"
 { yyval.sval = "int main() {\n " + yyvsp[-1].sval + "}\n"; }
 break;
 case 6:
-#line 57 "inicioCT.y"
+#line 62 "inicioCT.y"
 { yyval.sval = "#include " + yyvsp[0].sval; }
 break;
 case 7:
-#line 59 "inicioCT.y"
+#line 64 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + yyvsp[0].sval; }
 break;
 case 8:
-#line 60 "inicioCT.y"
+#line 65 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + yyvsp[0].sval; }
 break;
 case 9:
-#line 61 "inicioCT.y"
+#line 66 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + yyvsp[0].sval; }
 break;
 case 10:
-#line 62 "inicioCT.y"
-{ yyval.sval = ""; }
+#line 67 "inicioCT.y"
+{ yyval.sval = yyvsp[-1].sval + yyvsp[0].sval; }
 break;
 case 11:
-#line 64 "inicioCT.y"
-{  yyval.sval = " int " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
+#line 68 "inicioCT.y"
+{ yyval.sval = ""; }
 break;
 case 12:
-#line 65 "inicioCT.y"
-{  yyval.sval = " int " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
+#line 70 "inicioCT.y"
+{  yyval.sval = " int " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
 break;
 case 13:
-#line 66 "inicioCT.y"
-{  yyval.sval = " float " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
+#line 71 "inicioCT.y"
+{  yyval.sval = " int " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
 break;
 case 14:
-#line 67 "inicioCT.y"
-{  yyval.sval = " real " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
+#line 72 "inicioCT.y"
+{  yyval.sval = " float " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
 break;
 case 15:
-#line 68 "inicioCT.y"
-{  yyval.sval = " char " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
+#line 73 "inicioCT.y"
+{  yyval.sval = " real " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
 break;
 case 16:
-#line 69 "inicioCT.y"
-{  yyval.sval = " char " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
+#line 74 "inicioCT.y"
+{  yyval.sval = " char " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
 break;
 case 17:
-#line 70 "inicioCT.y"
-{yyval.sval = ""; }
+#line 75 "inicioCT.y"
+{  yyval.sval = " char " + yyvsp[-4].sval + "[" + yyvsp[-2].sval + "]" + ";\n" + yyvsp[0].sval; }
 break;
 case 18:
-#line 72 "inicioCT.y"
-{  yyval.sval = " " + yyvsp[-3].sval + " = " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
+#line 76 "inicioCT.y"
+{yyval.sval = ""; }
 break;
 case 19:
-#line 73 "inicioCT.y"
+#line 78 "inicioCT.y"
 {  yyval.sval = " " + yyvsp[-3].sval + " = " + yyvsp[-1].sval + ";\n" + yyvsp[0].sval; }
 break;
 case 20:
-#line 74 "inicioCT.y"
+#line 79 "inicioCT.y"
 {  yyval.sval = " " + yyvsp[-2].sval + "++" + ";\n" + yyvsp[0].sval; }
 break;
 case 21:
-#line 75 "inicioCT.y"
+#line 80 "inicioCT.y"
 {  yyval.sval = " " + yyvsp[-2].sval + "--" + ";\n" + yyvsp[0].sval; }
 break;
 case 22:
-#line 76 "inicioCT.y"
+#line 81 "inicioCT.y"
 {  yyval.sval = yyvsp[-2].sval + "=" + yyvsp[0].sval + ";\n"; }
 break;
 case 23:
-#line 77 "inicioCT.y"
+#line 83 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 24:
-#line 79 "inicioCT.y"
+#line 85 "inicioCT.y"
 {yyval.sval = yyvsp[0].sval;}
 break;
 case 25:
-#line 80 "inicioCT.y"
+#line 86 "inicioCT.y"
 {yyval.sval = yyvsp[0].sval;}
 break;
 case 26:
-#line 82 "inicioCT.y"
+#line 88 "inicioCT.y"
 { yyval.sval = yyvsp[-2].sval + " > " + yyvsp[0].sval; }
 break;
 case 27:
-#line 83 "inicioCT.y"
+#line 89 "inicioCT.y"
 { yyval.sval = yyvsp[-2].sval + " < " + yyvsp[0].sval; }
 break;
 case 28:
-#line 84 "inicioCT.y"
+#line 90 "inicioCT.y"
 { yyval.sval = yyvsp[-2].sval + " == " + yyvsp[0].sval; }
 break;
 case 29:
-#line 85 "inicioCT.y"
+#line 91 "inicioCT.y"
 { yyval.sval = yyvsp[-3].sval + " >" + "= " + yyvsp[0].sval; }
 break;
 case 30:
-#line 86 "inicioCT.y"
+#line 92 "inicioCT.y"
 { yyval.sval = yyvsp[-3].sval + " <" + "= " + yyvsp[0].sval; }
 break;
 case 31:
-#line 87 "inicioCT.y"
+#line 93 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 32:
-#line 89 "inicioCT.y"
+#line 95 "inicioCT.y"
 { yyval.sval = " if " + "(" + yyvsp[-5].sval + ")" + "{\n" + yyvsp[-2].sval + " }\n" + yyvsp[0].sval; }
 break;
 case 33:
-#line 90 "inicioCT.y"
+#line 96 "inicioCT.y"
 { yyval.sval = " else" + "if" + "(" + yyvsp[-5].sval + ")" + "{\n" + yyvsp[-2].sval + " }\n" + yyvsp[0].sval; }
 break;
 case 34:
-#line 91 "inicioCT.y"
+#line 97 "inicioCT.y"
 { yyval.sval = " else" + "{\n" + yyvsp[-2].sval + "}\n" + yyvsp[0].sval; }
 break;
 case 35:
-#line 92 "inicioCT.y"
+#line 98 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 36:
-#line 94 "inicioCT.y"
+#line 100 "inicioCT.y"
 { yyval.sval = "+" + yyvsp[0].sval; }
 break;
 case 37:
-#line 95 "inicioCT.y"
+#line 101 "inicioCT.y"
 { yyval.sval = "-" + yyvsp[0].sval; }
 break;
 case 38:
-#line 96 "inicioCT.y"
+#line 102 "inicioCT.y"
 { yyval.sval = "*" + yyvsp[0].sval; }
 break;
 case 39:
-#line 97 "inicioCT.y"
+#line 103 "inicioCT.y"
 { yyval.sval = "/" + yyvsp[0].sval; }
 break;
 case 40:
-#line 98 "inicioCT.y"
+#line 104 "inicioCT.y"
 { yyval.sval = "%" + yyvsp[0].sval; }
 break;
 case 41:
-#line 99 "inicioCT.y"
+#line 105 "inicioCT.y"
 {yyval.sval = ""; }
 break;
 case 42:
-#line 101 "inicioCT.y"
+#line 107 "inicioCT.y"
 { yyval.sval = yyvsp[-1].sval + yyvsp[0].sval; }
 break;
 case 43:
-#line 102 "inicioCT.y"
+#line 108 "inicioCT.y"
 { yyval.sval = "(" + yyvsp[-2].sval + ")" + yyvsp[0].sval; }
 break;
 case 44:
-#line 103 "inicioCT.y"
+#line 109 "inicioCT.y"
 {yyval.sval = ""; }
 break;
-#line 589 "y.tab.c"
+case 45:
+#line 111 "inicioCT.y"
+{yyval.sval = "while " + "(" + yyvsp[-4].sval + ")" + "{\n " + yyvsp[-1].sval + "}\n"; }
+break;
+case 46:
+#line 112 "inicioCT.y"
+{ yyval.sval = "do" + "{\n " + yyvsp[-5].sval + "}" + " while" + "(" + yyvsp[-1].sval + ")\n"; }
+break;
+#line 608 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;
