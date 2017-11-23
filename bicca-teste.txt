@@ -1,0 +1,21 @@
+incluir <stdio.h>
+incluir <stdlib.h>
+
+funcao_principal {
+  caracter funcoes[tamanho]
+  inteiro valores[tamanho]
+  real resultado[tamanho]
+  inteiro i
+  i := 0
+    enquanto (i <= tamanho) {
+    t := i + 2
+    i++
+	se (i<2) {
+	teste := teste
+	}
+  }
+  faca {
+	te := tamanho
+	t := t+t+t+5
+  } ate (2>2)
+}
