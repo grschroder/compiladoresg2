@@ -25,7 +25,6 @@
 %token MULTIPLICADO
 %token DIVIDIDO
 %token RESTO
-%token PARA
 %token MAIOR
 %token MENOR
 %token ABRE_PARENTESES
@@ -36,6 +35,11 @@
 %token FACA
 %token ATE
 %token PARA
+%token CASO
+%token OPCAO
+%token FIM_OPCAO
+%token ASPAS_SIMPLES
+%token <sval> CARACTER_ENTRE_ASPAS
 %token <sval> NUMERO
 %type <sval> programa
 %type <sval> funcao_principal
@@ -49,6 +53,7 @@
 %type <sval> operacoes
 %type <sval> expressao
 %type <sval> lacos
+%type <sval> opcoes
 
 %%
 inicio : programa	 { System.out.println($1); }
@@ -92,10 +97,16 @@ condicao   : tipo MAIOR tipo { $$ = $1 + " > " + $3; }
 		   | tipo MENOR IGUAL tipo { $$ = $1 + " <" + "= " + $4; }
 		   | {$$ = ""; }
 
+//é possível começar com senao -- ARRUMAR --
 condicionais : SE ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " if " + "(" + $3 + ")" + "{\n" + $6 + " }\n" + $8; }
 			 | SENAO SE ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " else" + "if" + "(" + $4 + ")" + "{\n" + $7 + " }\n" + $9; }
 			 | SENAO ABRE_CHAVES comandos FECHA_CHAVES condicionais { $$ = " else" + "{\n" + $3 + "}\n" + $5; }
+			 | CASO ABRE_PARENTESES IDENTIFICADOR FECHA_PARENTESES ABRE_CHAVES opcoes FECHA_CHAVES { $$ = "switch" + "(" + $3 + ")" + "{\n" + $6 + "}\n"; }
 		     | {$$ = ""; }
+//referente ao switch case
+opcoes		: OPCAO NUMERO DOIS_PONTOS comandos FIM_OPCAO opcoes { $$ = "case " + $2 + ":\n" + $4 + " break;\n" + $6; }
+			| OPCAO CARACTER_ENTRE_ASPAS DOIS_PONTOS comandos FIM_OPCAO opcoes { $$ = "case " + $2 + ":\n" + $4 + " break;\n" + $6; }
+			| {$$ = ""; }
 
 operacoes	: MAIS expressao { $$ = "+" + $2; }
 			| MENOS expressao { $$ = "-" + $2; }
@@ -110,7 +121,7 @@ expressao	: tipo operacoes { $$ = $1 + $2; }
 			
 lacos		: ENQUANTO ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$ = "while " + "(" + $3 + ")" + "{\n " + $6 + "}\n"; }
 			| FACA ABRE_CHAVES comandos FECHA_CHAVES ATE ABRE_PARENTESES condicao FECHA_PARENTESES { $$ = "do" + "{\n " + $3 + "}" + " while" + "(" + $7 + ")\n"; } 
-			//| PARA ABRE_PARENTESES atribuicao condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for " + "(" + $3 + $4 + " )" + "{" + $7 + "}\n"; }
+			| PARA ABRE_PARENTESES FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for " + "(" + " )" + "{" + $5 + "}\n"; }
 
 %%
 

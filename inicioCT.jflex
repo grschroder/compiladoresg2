@@ -46,12 +46,21 @@ caracter { return Parser.CARACTER; }
 "\<" { return Parser.MENOR; }
 "="	{ return Parser.IGUAL; }
 "\;" { return Parser.PONTO_VIRGULA; }
+":" { return Parser.DOIS_PONTOS; }
+"\'" { return Parser.ASPAS_SIMPLES; }
 se { return Parser.SE; }
 senao { return Parser.SENAO; }
 enquanto { return Parser.ENQUANTO; }
 faca { return Parser.FACA; }
 ate { return Parser.ATE; }
 para { return Parser.PARA; }
+caso { return Parser.CASO; }
+opcao { return Parser.OPCAO; }
+fim_opcao { return Parser.FIM_OPCAO; }
+\'[a-z]\' { 
+			yyparser.yylval = new ParserVal(yytext());
+			return Parser.CARACTER_ENTRE_ASPAS;			
+		  }
 [a-zA-Z][a-zA-Z0-9]*	{ 
 		//System.out.println(""+yytext());
 		yyparser.yylval = new ParserVal(yytext());

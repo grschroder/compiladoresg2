@@ -18,4 +18,22 @@ funcao_principal {
 	te := tamanho
 	t := t+t+t+5
   } ate (2>2)
+	caso (funcoes) {
+      opcao 'n':
+		qtd := 1
+		fim_opcao
+	  opcao 'i':
+		qtd := i+2
+		fim_opcao
+	}
+	para () {
+		i := 2
+	}
 }
+
+
+
+
+
+
+	  
