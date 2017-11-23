@@ -121,7 +121,8 @@ expressao	: tipo operacoes { $$ = $1 + $2; }
 			
 lacos		: ENQUANTO ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$ = "while " + "(" + $3 + ")" + "{\n " + $6 + "}\n"; }
 			| FACA ABRE_CHAVES comandos FECHA_CHAVES ATE ABRE_PARENTESES condicao FECHA_PARENTESES { $$ = "do" + "{\n " + $3 + "}" + " while" + "(" + $7 + ")\n"; } 
-			| PARA ABRE_PARENTESES FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for " + "(" + " )" + "{" + $5 + "}\n"; }
+			| PARA ABRE_PARENTESES FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for" + "(" + ")" + "{" + $5 + "}\n"; }
+			| {$$ = ""; }
 
 %%
 
