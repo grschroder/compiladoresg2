@@ -53,6 +53,7 @@
 %type <sval> operacoes
 %type <sval> expressao
 %type <sval> lacos
+%type <sval> atribuicao_for
 %type <sval> opcoes
 
 %%
@@ -83,8 +84,9 @@ declaracao : INTEIRO IDENTIFICADOR declaracao {  $$ = " int " + $2 + ";\n" + $3;
 atribuicao : IDENTIFICADOR ATRIBUIR tipo atribuicao {  $$ = " " + $1 + " = " + $3 + ";\n" + $4; }
 		   | IDENTIFICADOR INCREMENTO atribuicao {  $$ = " " + $1 + "++" + ";\n" + $3; }
 		   | IDENTIFICADOR DECREMENTO atribuicao {  $$ = " " + $1 + "--" + ";\n" + $3; }
-		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3 + ";\n"; }
-		   //| IDENTIFICADOR ATRIBUIR tipo PONTO_VIRGULA atribuicao {  $$ = " " + $1 + " = " + $3 + ";" + $5; }
+		   //| IDENTIFICADOR ATRIBUIR tipo PONTO_VIRGULA atribuicao {  $$ = " " + $1 + " = " + $3 + ";2222" + $5; }
+		   | IDENTIFICADOR ATRIBUIR expressao {  $$ = $1 + "=" + $3 + ";\n"; }		   
+		   
 		   | {$$ = ""; }
 
 tipo		: IDENTIFICADOR {$$ = $1;}
@@ -121,8 +123,12 @@ expressao	: tipo operacoes { $$ = $1 + $2; }
 			
 lacos		: ENQUANTO ABRE_PARENTESES condicao FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$ = "while " + "(" + $3 + ")" + "{\n " + $6 + "}\n"; }
 			| FACA ABRE_CHAVES comandos FECHA_CHAVES ATE ABRE_PARENTESES condicao FECHA_PARENTESES { $$ = "do" + "{\n " + $3 + "}" + " while" + "(" + $7 + ")\n"; } 
-			| PARA ABRE_PARENTESES FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for" + "(" + ")" + "{" + $5 + "}\n"; }
+			| PARA ABRE_PARENTESES atribuicao_for FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = "for" + "(" + $3 + ")" + "{" + $6 + "}\n"; }
 			| {$$ = ""; }
+			
+atribuicao_for	: IDENTIFICADOR ATRIBUIR tipo PONTO_VIRGULA atribuicao_for {  $$ = " " + $1 + " = " + $3 + ";" + $5; }
+				| {$$ = ""; }
+			
 
 %%
 

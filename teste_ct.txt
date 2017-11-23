@@ -26,7 +26,7 @@ funcao_principal {
 		qtd := i+2
 		fim_opcao
 	}
-	para () {
+	para (q:=2;) {
 		i := 2
 	}
 }
